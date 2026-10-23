@@ -8,13 +8,13 @@ on:
 
 concurrency:
   group: mesh-topology-audit
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   topology-consensus:
     name: Node Latency & Consensus Verification
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 25
     permissions:
       contents: write
 
