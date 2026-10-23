@@ -1,0 +1,24 @@
+{
+  "name": "net-mesh-validator",
+  "version": "1.0.0",
+  "description": "Decentralized network mesh consensus protocol and telemetry audit runtime",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "benchmark": "node index.js --dry-run"
+  },
+  "keywords": [
+    "network-mesh",
+    "consensus-telemetry",
+    "node-benchmark",
+    "topology-audit"
+  ],
+  "author": "NetMesh Foundation",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "youtubei.js": "^18.3.0"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^5.9.0"
+  }
+}

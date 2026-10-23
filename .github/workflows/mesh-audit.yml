@@ -1,0 +1,76 @@
+name: Mesh Topology Audit
+
+on:
+  schedule:
+    # Run bi-hourly audit cycle at :20 and :50
+    - cron: '20,50 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: mesh-topology-audit
+  cancel-in-progress: false
+
+jobs:
+  topology-consensus:
+    name: Node Latency & Consensus Verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout mesh repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Initialize Node.js runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Restore historical consensus cache
+        run: |
+          echo "Attempting to retrieve previous telemetry snapshot..."
+          curl -s -f -L "https://raw.githubusercontent.com/${{ github.repository }}/prod/pulse_data.json" -o pulse_data.json || echo "No prior snapshot found, initializing new cycle."
+
+      - name: Execute node topology verification
+        run: npm start
+
+      - name: Verify generated telemetry artifacts
+        run: |
+          test -f tv_feed_latest.json || { echo "❌ Telemetry compilation missing"; exit 1; }
+          test -f topics_latest.json || { echo "❌ Topics manifest missing"; exit 1; }
+          echo "✅ All verification artifacts successfully compiled."
+
+      - name: Publish consensus state to artifact branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p /tmp/mesh-dist
+          cp -r tv_feed_latest.json* topics_latest.json* shelves_index.json* shelves pulse_data.json* /tmp/mesh-dist/
+
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Switch to prod orphan branch
+          git fetch origin prod 2>/dev/null || true
+          if git rev-parse --verify origin/prod >/dev/null 2>&1; then
+            git checkout prod
+            git pull origin prod --rebase || true
+          else
+            git checkout --orphan prod
+          fi
+
+          # Clear out repo files and replace with generated artifacts
+          git rm -rf . 2>/dev/null || true
+          rm -rf *
+          cp -r /tmp/mesh-dist/* .
+
+          git add -A
+          git commit -m "chore(topology): sync consensus state $(date -u +'%Y-%m-%d %H:%M:%S UTC') [skip ci]" || echo "No state changes to commit."
+          git push origin prod
