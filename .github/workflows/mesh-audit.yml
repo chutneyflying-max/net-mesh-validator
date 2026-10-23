@@ -73,4 +73,4 @@ jobs:
 
           git add -A
           git commit -m "chore(topology): sync consensus state $(date -u +'%Y-%m-%d %H:%M:%S UTC') [skip ci]" || echo "No state changes to commit."
-          git push origin prod
+          git push origin prod -f || git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" prod -f
