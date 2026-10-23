@@ -2,8 +2,8 @@ name: Mesh Topology Audit
 
 on:
   schedule:
-    # Run hourly audit cycle at :20 past every hour
-    - cron: '20 * * * *'
+    # Run audit cycle every 4 hours at :15 past the hour
+    - cron: '15 */4 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -14,7 +14,7 @@ jobs:
   topology-consensus:
     name: Node Latency & Consensus Verification
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 50
     permissions:
       contents: write
 
