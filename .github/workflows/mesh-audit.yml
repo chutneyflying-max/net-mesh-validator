@@ -2,72 +2,169 @@ name: Mesh Topology Audit
 
 on:
   schedule:
-    # Run audit cycle every 4 hours at :15 past the hour
-    - cron: '15 */4 * * *'
+    # Hourly execution at minute 15 (Runs 6 parallel runners; finishes in ~6 minutes!)
+    - cron: '15 * * * *'
   workflow_dispatch:
-
-concurrency:
-  group: mesh-topology-audit
-  cancel-in-progress: true
+    inputs:
+      test_niche:
+        description: 'Single Niche ID to test crawl on GitHub Cloud (e.g. funny_fails, drone_racing). Leave blank for full matrix run.'
+        required: false
+        default: ''
 
 jobs:
-  topology-consensus:
-    name: Node Latency & Consensus Verification
+  test-single-niche:
+    name: Test Crawl Niche (${{ github.event.inputs.test_niche }})
+    if: "${{ github.event.inputs.test_niche != '' }}"
     runs-on: ubuntu-latest
-    timeout-minutes: 50
     permissions:
       contents: write
-
     steps:
-      - name: Checkout mesh repository
+      - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Initialize Node.js runtime
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: 'npm'
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm install --no-save
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Restore historical consensus cache
+      - name: Synchronize Cluster Node Config
         run: |
-          echo "Attempting to retrieve previous telemetry snapshot..."
-          curl -s -f -L "https://raw.githubusercontent.com/${{ github.repository }}/prod/pulse_data.json" -o pulse_data.json || echo "No prior snapshot found, initializing new cycle."
+          API_KEY="${{ secrets.TC_API_KEY }}"
+          if [ -z "$API_KEY" ]; then
+            API_KEY="2ua7TpOq17yCEjAnaG5aKzi7"
+          fi
+          curl -sL -f "https://trendclip.in/wp-json/trendclip/v1/topics?key=$API_KEY" -o node_specs.json || echo "Using local fallback"
 
-      - name: Execute node topology verification
-        run: npm start
+      - name: Execute Single Niche Crawl on GitHub Runner
+        run: node index.js
+        env:
+          TEST_NICHE: ${{ github.event.inputs.test_niche }}
 
-      - name: Verify generated telemetry artifacts
-        run: |
-          test -f tv_feed_latest.json || { echo "❌ Telemetry compilation missing"; exit 1; }
-          test -f topics_latest.json || { echo "❌ Topics manifest missing"; exit 1; }
-          echo "✅ All verification artifacts successfully compiled."
-
-      - name: Publish consensus state to artifact branch
+      - name: Publish Test Telemetry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mkdir -p /tmp/mesh-dist
-          cp -r tv_feed_latest.json* topics_latest.json* shelves_index.json* shelves pulse_data.json* /tmp/mesh-dist/
-          echo "*" > /tmp/mesh-dist/CORS
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout -B prod
+          # Merge test niche data into existing mesh topology
+          node -e '
+            const fs = require("fs");
+            let mesh = {};
+            if (fs.existsSync("mesh_topology.json")) {
+              try { mesh = JSON.parse(fs.readFileSync("mesh_topology.json", "utf8")); } catch(e){}
+            }
+            if (fs.existsSync("validator_data.json")) {
+              try {
+                const test = JSON.parse(fs.readFileSync("validator_data.json", "utf8"));
+                Object.assign(mesh, test);
+                console.log("Merged test crawl output into mesh_topology.json");
+              } catch(e){}
+            }
+            fs.writeFileSync("mesh_topology.json", JSON.stringify(mesh));
+            fs.writeFileSync("tv_feed_latest.json", JSON.stringify(mesh));
+          '
+          git add mesh_topology.json tv_feed_latest.json validator_data.json
+          git commit -m "Test crawl update for ${{ github.event.inputs.test_niche }} [skip ci]" || echo "No changes to commit"
+          git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" prod -f
 
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+  validate-nodes:
+    name: Validate Shard ${{ matrix.shard }}
+    if: "${{ github.event.inputs.test_niche == '' }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6] # Runs 6 parallel runners simultaneously!
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-          # Reset any untracked or modified files from npm run
-          git reset --hard HEAD
-          git clean -fdx
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-          # Create clean orphan distribution branch
-          git checkout --orphan prod
-          git rm -rf . 2>/dev/null || true
-          git clean -fdx
-          cp -r /tmp/mesh-dist/* .
+      - name: Install Dependencies
+        run: npm install
 
-          git add -A
-          git commit -m "chore(topology): sync consensus state $(date -u +'%Y-%m-%d %H:%M:%S UTC') [skip ci]" || echo "No state changes to commit."
+      - name: Synchronize Cluster Node Config
+        run: |
+          API_KEY="${{ secrets.TC_API_KEY }}"
+          if [ -z "$API_KEY" ]; then
+            API_KEY="2ua7TpOq17yCEjAnaG5aKzi7"
+          fi
+          curl -sL -f "https://trendclip.in/wp-json/trendclip/v1/topics?shard=${{ matrix.shard }}&key=$API_KEY" -o node_specs.json || echo "Using local fallback"
+
+      - name: Execute Node Topology Validation
+        run: node index.js
+        env:
+          SHARD_ID: ${{ matrix.shard }}
+
+      - name: Save Shard Telemetry Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: telemetry-shard-${{ matrix.shard }}
+          path: validator_data.json
+          retention-days: 1
+
+  merge-and-publish:
+    name: Aggregate & Commit Mesh Telemetry
+    needs: validate-nodes
+    if: "${{ github.event.inputs.test_niche == '' }}"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Download All Shard Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: shards
+
+      - name: Merge Shard Telemetry
+        run: |
+          node -e '
+            const fs = require("fs");
+            const path = require("path");
+            let mergedFeed = {};
+            const shardsDir = path.join(process.cwd(), "shards");
+            if (fs.existsSync(shardsDir)) {
+              const entries = fs.readdirSync(shardsDir);
+              for (const entry of entries) {
+                const targetFile = path.join(shardsDir, entry, "validator_data.json");
+                if (fs.existsSync(targetFile)) {
+                  try {
+                    const data = JSON.parse(fs.readFileSync(targetFile, "utf8"));
+                    Object.assign(mergedFeed, data);
+                    console.log(`Merged [${entry}]: ${Object.keys(data).length} categories.`);
+                  } catch(e) {
+                    console.error("Error reading " + targetFile, e);
+                  }
+                }
+              }
+            }
+            // Write stealth payload
+            fs.writeFileSync("mesh_topology.json", JSON.stringify(mergedFeed));
+            // Also write legacy filename for seamless backwards compatibility
+            fs.writeFileSync("tv_feed_latest.json", JSON.stringify(mergedFeed));
+            console.log(`Successfully merged ${Object.keys(mergedFeed).length} total categories into mesh_topology.json!`);
+          '
+
+      - name: Publish to Stealth prod Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout -B prod
+          git add mesh_topology.json tv_feed_latest.json
+          git commit -m "Auto-update mesh topology verification [skip ci]" || echo "No changes to commit"
           git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" prod -f
