@@ -1,1 +1,250 @@
-const a0_0x5f0d24=a0_0x41fd;(function(_0x14fb50,_0x507c24){const _0x216dc0=a0_0x41fd,_0xf493de=_0x14fb50();while(!![]){try{const _0x41005e=parseInt(_0x216dc0(0x154))/0x1*(-parseInt(_0x216dc0(0x12d))/0x2)+parseInt(_0x216dc0(0x168))/0x3*(-parseInt(_0x216dc0(0x14e))/0x4)+-parseInt(_0x216dc0(0x1ba))/0x5*(-parseInt(_0x216dc0(0x133))/0x6)+-parseInt(_0x216dc0(0x18e))/0x7*(parseInt(_0x216dc0(0x1b1))/0x8)+parseInt(_0x216dc0(0x16c))/0x9*(-parseInt(_0x216dc0(0x16a))/0xa)+-parseInt(_0x216dc0(0x12e))/0xb+parseInt(_0x216dc0(0x1b3))/0xc;if(_0x41005e===_0x507c24)break;else _0xf493de['push'](_0xf493de['shift']());}catch(_0x38fdf8){_0xf493de['push'](_0xf493de['shift']());}}}(a0_0x3f35,0xb588d));const fs=require('fs'),path=require(a0_0x5f0d24(0x148)),zlib=require(a0_0x5f0d24(0x1aa));let Innertube;try{Innertube=require(a0_0x5f0d24(0x147))[a0_0x5f0d24(0x173)];}catch(a0_0x2bda73){}const CRAWL_CONFIG={'maxVideosPerKeyword':0x3c,'decayHalfLife':{'default':0x30},'historySnapshotsLimit':0x30};function parseAgeTextToHours(_0x5e3c44){const _0x3c2e76=a0_0x5f0d24;if(!_0x5e3c44)return null;const _0xbede35=_0x5e3c44[_0x3c2e76(0x14d)](/^Streamed\s+/i,'')[_0x3c2e76(0x171)](/(\d+)\s*(second|minute|hour|day|week|month|year)/i);if(!_0xbede35)return null;const _0x2f318a=parseInt(_0xbede35[0x1],0xa),_0x12f7bb={'second':0x1/0xe10,'minute':0x1/0x3c,'hour':0x1,'day':0x18,'week':0xa8,'month':0x2d0,'year':0x2238};return _0x2f318a*(_0x12f7bb[_0xbede35[0x2][_0x3c2e76(0x185)]()]||0x0);}function computePulseScore(_0x22a9c1,_0x159201,_0x55065f){const _0x1b172a=a0_0x5f0d24,_0x440522=parseAgeTextToHours(_0x159201)||0x2d0,_0x2722a4=Math[_0x1b172a(0x165)](0x0,0x64*Math[_0x1b172a(0x1a6)](-_0x440522/0x30)),_0x25484a=Math['log10'](Math[_0x1b172a(0x165)](0x1,_0x22a9c1))*0x1e;return Math[_0x1b172a(0x155)](_0x25484a+_0x2722a4);}function a0_0x3f35(){const _0x574f42=['BM93','mtCWndy2sw5nwK9Y','icdILjqGsw5Nzxn0zwqG','ihrLBgvTzxrYEsbYzwnVCMrZlG','yuHsmgnittzmEtKZzdnJDwvxotfKsfzPwLm1AMiYmhzLvZKXzeHwAvPxA3zKAKv2yZjwAgnTtM8','p2TLEt0','D2fYBG','ChvIBgLZAgvKvgv4Da','AwnVBG','yMfKz2vZ','4PYfienSDxn0zxiGAw5KzxGGD3jPDhrLBIb0BYa','4PQG77IpifbYAw1HCNKGy29UC2vUC3vZihnLC3nPB24GzMfSBgjHy2SGywn0AxzLlG','uMLZAw5N','zMLSDgvY','AgLZDg9YEvnUyxbZAg90C0XPBwL0','lI4U','kfnbtvbmrsbnt0rfkq','DMfSDwvZ','C2HLBhzLCW','DMLLD0nVDw50vgv4Da','ls1Zyw1WBgu','Ew91DhvIzwKUANm','Cgf0Aa','yNjVDgXPq29TChjLC3ntEw5J','rwDjsuf3pt0','y2f0y2G','BgvUz3rOvgv4Da','CMvWBgfJzq','mZqXota4ne5Nz3Pmuq','u3vYz2LUzW','ywrK','zhvYyxrPB25FC2vJ','yMfZzty0','z2v0','nuH5A0DetG','CM91BMq','y29UDgvUDhm','l2HXzgvMyxvSDc5QCgC','Bw92Aw5NvgH1BwjUywLSuMvUzgvYzxi','y2HHBM5LBfrPDgXL','Dg9WAwnFAwq','Dg9gAxHLza','ChvIBgLZAgvK','yxbWBgLJyxrPB24VANnVBG','qLjpveXjx1bbuKfnx1fvquXjvfK','C29YDa','Bwv0ywrHDgfcywrNzvjLBMrLCMvY','C2HVCNrFDMLLD19JB3vUDa','AM9PBG','ue9tva','y2HHBM5LBeLK','Bwf4','CgfYyw1Z','ChjPBwfYEunVBNrLBNrZ','m0zJru1YqG','z2v0q29UDgLUDwf0Aw9U','nty1mJbnDNPYy3u','rMfKAw5N','mJi1mePZq210ta','yuHsmgnittzmEtKZzdnJDwvxotfKsfzPwLm1AMiYmhy','lMPZB24','DgH1BwjUywLSCW','C3rYAw5NAwz5','Bwf0y2G','Dg9ju09tDhjPBMC','sw5Uzxj0DwjL','zMLSBq','CMLJAf90AhvTyM5HAwW','Bw92Awu','Bwf4vMLKzw9ZugvYs2v5D29Yza','cVcFJOKGtMv0D29YAYbTzxnOihzHBgLKyxrPB24Gy3LJBguGy29TCgXLDgvKihn1y2nLC3nMDwXSEs4','icGRic5ICIK','4PYfienVBxbYzxnZzwqGDgvSzw1LDhj5ihn0CMvHBsb3CML0DgvUihrVia','BwfW','zxHPDa','B3v0BgLLCL9Zy29Yzq','DMLKzw9Z','DNbO','yM9SBhL3B29Kx2nPBMvTyq','rMf0ywWGzxjYB3iGzhvYAw5NihzHBgLKyxrPB24Gy3LJBgu6','y3vYCMvUDf92CgG','DMLLD19JB3vUDa','Bw92Aw5NvgH1BwjUywLSrgv0ywLSCW','Dg9mB3DLCKnHC2u','w01LC2HoB2rLxsbczw5JAg1HCMTPBMCGy2X1C3rLCJOG','iokgKIaI','Ahr0Chm6lY9PlNL0Aw1NlMnVBs92As8','yNjVD3nLswq','C25HChnOB3rZ','DxrMoa','DhDVq29SDw1Uu2vHCMnOuMvZDwX0C1jLBMrLCMvY','y29Uy2f0','n2rPq3nNrW','C2LTCgXLvgv4Da','y2HHBM5LBfvYBa','AxrLBvnLy3rPB25szw5KzxjLCG','4PYfie1HC3rLCIbHBMfSExrPy2fSihrLBgvTzxrYEsb3CML0DgvUihrVia','BgvUz3rO','C2vHCMnO','tw96AwXSys81lJaGkfDPBMrVD3mGtLqGmtaUmdSGv2LUnJq7ihG2ncKGqxbWBgvxzwjlAxqVntm3lJm2','BgfIzwW','zhvYyxrPB24','C2HPzNq','zxHPC3rZu3LUyW','igjLBMnOBwfYAYbJBhvZDgvYCY4','y3vYCMvUDf92AwrLB3m','BMfTzq','DgL0Bgu','zw5HyMXLza','DxjS','ChvSC2vFzgf0ys5QC29U','Bg9N','w01LC2HwywXPzgf0B3jDieLUAxrPywXPEMLUzYb0zwXLBwv0CNKGyMvUy2HTyxjRia','y3jLyxrL','ls1KCNKTCNvU','zNvUy3rPB24','zxHW','DMLLD3m','C3bHCMTSAw5L','BgfZDf9ZzwvU','EMXPyG','zMXVB3i','4PYfifrLBgvTzxrYEsbJB25Zzw5ZDxmGC2vZC2LVBIbPBML0AwfSAxPLzc4','yNjVD3nLrw5KCg9PBNq','ywnJzwXLCMf0Aw9U','zNjVBq','BwTKAxjtEw5J','mta1mJu1nJbqrhvtqwK','Dgv4Da','nJa0nda0nZjcAMnLz3i','Dg9tDhjPBMC','yxv0Ag9Y','Cg9ZAxrPB24','4Os577IpifnHBxbSAw5Nia','CMvHzezPBgvtEw5J','DMLYywW','mtu1zKfbBLr0','u3rLywr5','CgfYC2u','4PYfie1HBMLMzxn0ihnUyxbZAg90ihDYAxr0zw4GDg8G','AgfZ','C2HLBhzLC19PBMrLEc5QC29U','CNvUCW','DMLKzw9jza','Aw5JBhvKzxm','B3DUzxjuzxH0','DhzFzMvLzf9SyxrLC3qUANnVBG','jNbYzxr0EvbYAw50pwzHBhnL','C2XPy2u','ChvZAa','CgvYzM9YBwfUy2u','mcb2Awv3CW','A2v5D29Yzhm','D3jPDgvgAwXLu3LUyW','DgH1BwjUywLS','zxjYB3i','Ag9SBhL3B29Kx2nPBMvTyq','yxjNDG','CMLJAfrODw1IBMfPBa','y2HHBM5LBf90AxrSzq','mJq4nZKYu0HlBgf6','mta2nti3otzfA0rKzui','BM9KzxnFBwfUAwzLC3qUANnVBG','A2v5CW','ANnVBG'];a0_0x3f35=function(){return _0x574f42;};return a0_0x3f35();}const _EP_BASE=Buffer[a0_0x5f0d24(0x1af)](a0_0x5f0d24(0x16d),a0_0x5f0d24(0x152))[a0_0x5f0d24(0x1b4)](a0_0x5f0d24(0x18b)),_EP_SEARCH=Buffer['from'](a0_0x5f0d24(0x136),a0_0x5f0d24(0x152))[a0_0x5f0d24(0x1b4)](a0_0x5f0d24(0x18b));async function fallbackInnerTubeSearch(_0x111045,_0x43e12b=null){const _0x296eea=a0_0x5f0d24;try{const _0x53f803=await fetch(_EP_BASE,{'headers':{'User-Agent':_0x296eea(0x195)}}),_0x4c2262=await _0x53f803[_0x296eea(0x1b2)](),_0x11da9c=_0x4c2262[_0x296eea(0x171)](/"INNERTUBE_API_KEY"\s*:\s*"([^"]+)"/)?.[0x1],_0x564daa=_0x4c2262[_0x296eea(0x171)](/"INNERTUBE_CLIENT_VERSION"\s*:\s*"([^"]+)"/)?.[0x1];if(!_0x11da9c||!_0x564daa)return[];const _0x2768cb={'context':{'client':{'clientName':'WEB','clientVersion':_0x564daa,'hl':'en','gl':'US'}},'query':_0x111045};if(_0x43e12b)_0x2768cb[_0x296eea(0x166)]=_0x43e12b;const _0x3ad13e=await fetch(_EP_SEARCH+_0x296eea(0x137)+_0x11da9c+_0x296eea(0x1c5),{'method':_0x296eea(0x163),'headers':{'Content-Type':_0x296eea(0x15d)},'body':JSON[_0x296eea(0x170)](_0x2768cb)});if(!_0x3ad13e['ok'])return[];const _0x40e2ce=await _0x3ad13e[_0x296eea(0x131)](),_0x5d2e3f=_0x40e2ce[_0x296eea(0x156)]?.[_0x296eea(0x18c)]?.[_0x296eea(0x167)]?.['sectionListRenderer']?.['contents']||[],_0x2cf806=[];for(const _0x335f0f of _0x5d2e3f){if(_0x335f0f[_0x296eea(0x191)]?.[_0x296eea(0x156)])for(const _0x1825ad of _0x335f0f[_0x296eea(0x191)]['contents']){const _0x593a3f=_0x1825ad['videoRenderer'];if(_0x593a3f?.[_0x296eea(0x1c1)]){const _0x338d2e=_0x593a3f['richThumbnail']?.[_0x296eea(0x158)]?.[_0x296eea(0x184)]?.[_0x296eea(0x16f)]?.[0x0]?.[_0x296eea(0x19f)]||'',_0x455300=(_0x593a3f[_0x296eea(0x13b)]||[])['map'](_0x26112c=>_0x26112c[_0x296eea(0x160)]?.['label']||'')[_0x296eea(0x13f)](Boolean);_0x2cf806[_0x296eea(0x1c7)]({'id':_0x593a3f[_0x296eea(0x1c1)],'title':_0x593a3f[_0x296eea(0x19d)]?.[_0x296eea(0x1c0)]?.[0x0]?.[_0x296eea(0x1b2)]||'','channelTitle':_0x593a3f['ownerText']?.['runs']?.[0x0]?.['text']||'','channelId':_0x593a3f[_0x296eea(0x1c3)]?.['runs']?.[0x0]?.['navigationEndpoint']?.[_0x296eea(0x1ad)]?.[_0x296eea(0x189)]||'','viewsText':_0x593a3f[_0x296eea(0x145)]?.[_0x296eea(0x18f)]||_0x296eea(0x1c9),'publishedText':_0x593a3f['publishedTimeText']?.['simpleText']||'','duration':_0x593a3f[_0x296eea(0x14c)]?.[_0x296eea(0x18f)]||'','durationSec':0x0,'thumbnail':_0x593a3f[_0x296eea(0x127)]?.[_0x296eea(0x16f)]?.[0x0]?.['url']||_0x296eea(0x188)+_0x593a3f[_0x296eea(0x1c1)]+'/hqdefault.jpg','richThumbnail':_0x338d2e,'badges':_0x455300});}}}return _0x2cf806;}catch(_0x4c664c){return[];}}function a0_0x41fd(_0xbd3b54,_0x28e7a0){_0xbd3b54=_0xbd3b54-0x125;const _0x3f35b0=a0_0x3f35();let _0x41fdb7=_0x3f35b0[_0xbd3b54];if(a0_0x41fd['AHRzlA']===undefined){var _0x4b4bf4=function(_0x5041cf){const _0x4fa735='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x1462e9='',_0x2bda73='';for(let _0x5e3c44=0x0,_0xbede35,_0x2f318a,_0x12f7bb=0x0;_0x2f318a=_0x5041cf['charAt'](_0x12f7bb++);~_0x2f318a&&(_0xbede35=_0x5e3c44%0x4?_0xbede35*0x40+_0x2f318a:_0x2f318a,_0x5e3c44++%0x4)?_0x1462e9+=String['fromCharCode'](0xff&_0xbede35>>(-0x2*_0x5e3c44&0x6)):0x0){_0x2f318a=_0x4fa735['indexOf'](_0x2f318a);}for(let _0x22a9c1=0x0,_0x159201=_0x1462e9['length'];_0x22a9c1<_0x159201;_0x22a9c1++){_0x2bda73+='%'+('00'+_0x1462e9['charCodeAt'](_0x22a9c1)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2bda73);};a0_0x41fd['jbuVeC']=_0x4b4bf4,a0_0x41fd['ezNasm']={},a0_0x41fd['AHRzlA']=!![];}const _0x452621=_0x3f35b0[0x0];a0_0x41fd['xmkieJ']!==_0x452621&&(a0_0x41fd['ezNasm']={},a0_0x41fd['xmkieJ']=_0x452621);const _0x272be1=a0_0x41fd['ezNasm'][_0xbd3b54];return _0x272be1===undefined?(_0x41fdb7=a0_0x41fd['jbuVeC'](_0x41fdb7),a0_0x41fd['ezNasm'][_0xbd3b54]=_0x41fdb7):_0x41fdb7=_0x272be1,_0x41fdb7;}async function searchKeyword(_0x2322e0,_0x2fee14){const _0x47196e=a0_0x5f0d24;if(_0x2322e0)try{const _0x1c5d7a=await _0x2322e0[_0x47196e(0x194)](_0x2fee14,{'type':'video'}),_0x3c2b8d=[..._0x1c5d7a[_0x47196e(0x17e)]||[]];if(typeof _0x1c5d7a['getContinuation']===_0x47196e(0x1a5))try{const _0x563b45=await _0x1c5d7a[_0x47196e(0x169)]();if(_0x563b45?.[_0x47196e(0x17e)])_0x3c2b8d[_0x47196e(0x1c7)](..._0x563b45[_0x47196e(0x17e)]);if(typeof _0x563b45?.[_0x47196e(0x169)]===_0x47196e(0x1a5)){const _0x501e9b=await _0x563b45[_0x47196e(0x169)]();if(_0x501e9b?.[_0x47196e(0x17e)])_0x3c2b8d[_0x47196e(0x1c7)](..._0x501e9b[_0x47196e(0x17e)]);}}catch(_0xea2dc1){}const _0xc42710=[];for(const _0x49ab15 of _0x3c2b8d){if(_0x49ab15['id']){const _0x2e5039=_0x49ab15[_0x47196e(0x175)]?.[0x0]?.['url']||'',_0x409b12=(_0x49ab15[_0x47196e(0x13b)]||[])[_0x47196e(0x17b)](_0x24be29=>_0x24be29[_0x47196e(0x196)]||_0x24be29['text']||'')[_0x47196e(0x13f)](Boolean);_0xc42710[_0x47196e(0x1c7)]({'id':_0x49ab15['id'],'title':_0x49ab15['title']?.[_0x47196e(0x1b2)]||'','channelTitle':_0x49ab15['author']?.[_0x47196e(0x19c)]||'','channelId':_0x49ab15['author']?.['id']||'','channelUrl':_0x49ab15[_0x47196e(0x1b5)]?.[_0x47196e(0x19f)]||'','viewsText':_0x49ab15[_0x47196e(0x183)]?.[_0x47196e(0x1b2)]||_0x49ab15[_0x47196e(0x161)]?.[_0x47196e(0x1b2)]||_0x47196e(0x1c9),'publishedText':_0x49ab15[_0x47196e(0x15c)]?.['text']||'','duration':_0x49ab15[_0x47196e(0x197)]?.[_0x47196e(0x1b2)]||'','durationSec':_0x49ab15[_0x47196e(0x197)]?.['seconds']||0x0,'thumbnail':_0x49ab15['thumbnails']?.[0x0]?.[_0x47196e(0x19f)]||'https://i.ytimg.com/vi/'+_0x49ab15['id']+_0x47196e(0x157),'richThumbnail':_0x2e5039,'badges':_0x409b12});}}if(_0xc42710[_0x47196e(0x193)]>0x0)return _0xc42710;}catch(_0xf6427b){}const _0x47e0a7=await fallbackInnerTubeSearch(_0x2fee14,_0x47196e(0x14a)),_0x231058=await fallbackInnerTubeSearch(_0x2fee14),_0x2c197f=new Set(),_0x21af4a=[];for(const _0x4c1ed9 of[..._0x47e0a7,..._0x231058]){!_0x2c197f['has'](_0x4c1ed9['id'])&&(_0x2c197f[_0x47196e(0x150)](_0x4c1ed9['id']),_0x21af4a[_0x47196e(0x1c7)](_0x4c1ed9));}return _0x21af4a;}function writeWithBrotli(_0x2c51e9,_0xcb56f5){const _0x1fd1d3=a0_0x5f0d24;fs[_0x1fd1d3(0x126)](_0x2c51e9,_0xcb56f5,_0x1fd1d3(0x18b));try{const _0x2cdc16=Buffer[_0x1fd1d3(0x1af)](_0xcb56f5,'utf8'),_0xe6537=zlib[_0x1fd1d3(0x149)](_0x2cdc16,{'params':{[zlib['constants'][_0x1fd1d3(0x15e)]]:0x6}});fs[_0x1fd1d3(0x126)](_0x2c51e9+'.br',_0xe6537);}catch(_0x3878ac){}}async function run(){const _0x57989c=a0_0x5f0d24,_0x4aec21=process[_0x57989c(0x12a)][_0x57989c(0x1c2)](_0x57989c(0x1a4))||process[_0x57989c(0x12a)][_0x57989c(0x1c2)](_0x57989c(0x146));console[_0x57989c(0x1a1)](_0x57989c(0x1a2)+(_0x4aec21?_0x57989c(0x142):'')+_0x57989c(0x141));let _0x339e41=null;if(Innertube)try{_0x339e41=await Innertube[_0x57989c(0x1a3)]({'lang':'en','location':'US','retrieve_player':![]}),console[_0x57989c(0x1a1)](_0x57989c(0x1ac));}catch(_0x406cd4){console[_0x57989c(0x138)](_0x57989c(0x13d));}const _0x3c393e=fs[_0x57989c(0x199)](path[_0x57989c(0x162)](__dirname,'package.json'))?__dirname:path[_0x57989c(0x162)](__dirname,'..'),_0x2c5b7c=path[_0x57989c(0x162)](_0x3c393e,_0x57989c(0x12f));!fs[_0x57989c(0x199)](_0x2c5b7c)&&(console[_0x57989c(0x128)]('❌\x20nodes_manifest.json\x20not\x20found\x20in\x20root\x20directory!'),process['exit'](0x1));const _0x574883=JSON['parse'](fs[_0x57989c(0x1b8)](_0x2c5b7c,'utf8'));let _0x2fdd1b=_0x574883[_0x57989c(0x13f)](_0x1e2e52=>_0x1e2e52['enabled']!==![]&&_0x1e2e52[_0x57989c(0x125)]&&_0x1e2e52[_0x57989c(0x125)][_0x57989c(0x193)]>0x0);_0x4aec21&&(_0x2fdd1b=_0x2fdd1b[_0x57989c(0x1c6)](0x0,0x3),console[_0x57989c(0x1a1)](_0x57989c(0x1b7)+_0x2fdd1b[_0x57989c(0x193)]+_0x57989c(0x19a)));const _0x2461f6=path['join'](_0x3c393e,_0x57989c(0x1a0));let _0x4a90d9={'snapshots':[],'current_videos':[]};if(fs[_0x57989c(0x199)](_0x2461f6))try{_0x4a90d9=JSON[_0x57989c(0x1bc)](fs[_0x57989c(0x1b8)](_0x2461f6,_0x57989c(0x18b)));if(!_0x4a90d9[_0x57989c(0x18a)])_0x4a90d9[_0x57989c(0x18a)]=[];if(!_0x4a90d9[_0x57989c(0x19b)])_0x4a90d9[_0x57989c(0x19b)]=[];}catch(_0x3d7e88){}const _0x2a6cf7=new Map(_0x4a90d9[_0x57989c(0x19b)][_0x57989c(0x17b)](_0x3b93ab=>[_0x3b93ab['id'],_0x3b93ab])),_0x280452=new Map(_0x4a90d9[_0x57989c(0x19b)][_0x57989c(0x17b)](_0x157259=>[_0x157259['id']+'_'+_0x157259[_0x57989c(0x15a)],_0x157259])),_0x7d12d3=[],_0x2c376c={'timestamp':new Date()[_0x57989c(0x172)](),'topics':{}},_0x49eaa5=parseInt(process.env.MAX_KW_PER_TOPIC,0xa)||0x5;for(const _0x337ed6 of _0x2fdd1b){let _0x2411b6=_0x337ed6['keywords']||[];if(_0x4aec21)_0x2411b6=_0x2411b6[_0x57989c(0x1c6)](0x0,0x2);else{if(_0x49eaa5>0x0&&_0x2411b6['length']>_0x49eaa5){const _0x19c2ea=Math['floor'](Date[_0x57989c(0x132)]()/(0x3c*0x3c*0x3e8)),_0x5748b0=_0x19c2ea*_0x49eaa5%_0x2411b6['length'],_0x3c09c9=_0x2411b6[_0x57989c(0x1c6)](_0x5748b0,_0x5748b0+_0x49eaa5);_0x3c09c9[_0x57989c(0x193)]<_0x49eaa5&&_0x3c09c9[_0x57989c(0x1c7)](..._0x2411b6[_0x57989c(0x1c6)](0x0,_0x49eaa5-_0x3c09c9[_0x57989c(0x193)])),_0x2411b6=_0x3c09c9;}}let _0x2e2f10=0x0,_0x4a910d=0x0;for(const _0x5ec4ad of _0x2411b6){console[_0x57989c(0x1a1)](_0x57989c(0x186)+_0x337ed6[_0x57989c(0x19c)]+_0x57989c(0x187)+_0x5ec4ad+'\x22');const _0x19806a=await searchKeyword(_0x339e41,_0x5ec4ad);console[_0x57989c(0x1a1)](_0x57989c(0x134)+_0x19806a[_0x57989c(0x193)]+_0x57989c(0x135));for(const _0x27239e of _0x19806a[_0x57989c(0x1c6)](0x0,CRAWL_CONFIG[_0x57989c(0x177)])){const _0x2610b0=parseInt(_0x27239e['viewsText'][_0x57989c(0x14d)](/[^0-9]/g,''),0xa)||0x1,_0xcf37e3=parseAgeTextToHours(_0x27239e[_0x57989c(0x139)])||0x2d0,_0x4c60dc=_0xcf37e3>0x0?Number((_0x2610b0/_0xcf37e3)['toFixed'](0x1)):0x0,_0x1ecb40=_0x2a6cf7['get'](_0x27239e['id']);let _0x49a029=_0x1ecb40?_0x1ecb40[_0x57989c(0x182)]||0x0:0x0,_0x49eb3c=new Date()['toISOString'](),_0x4b9f5f=_0x1ecb40?_0x1ecb40[_0x57989c(0x182)]||0x0:0x0,_0x4a76df=_0x1ecb40?.[_0x57989c(0x1a8)]?[..._0x1ecb40['sparkline']]:[];if(_0x1ecb40){_0x49eb3c=_0x1ecb40['created_at']||_0x49eb3c;const _0x73ef75=(new Date()-new Date(_0x1ecb40['last_seen']))/0x3e8;if(_0x73ef75>0x3c){const _0x50347a=Math[_0x57989c(0x165)](0x0,_0x2610b0-_0x1ecb40[_0x57989c(0x1a7)]);_0x49a029=Number((_0x50347a/_0x73ef75*0xe10)[_0x57989c(0x15b)](0x1));}}const _0x39b949=Number((_0x49a029-_0x4b9f5f)['toFixed'](0x1));_0x4a76df[_0x57989c(0x1c7)](Math[_0x57989c(0x155)](_0x49a029>0x0?_0x49a029:_0x4c60dc));if(_0x4a76df[_0x57989c(0x193)]>0x5)_0x4a76df['shift']();let _0x2b6c81=computePulseScore(_0x4c60dc,_0x27239e[_0x57989c(0x139)],_0x337ed6['id']);_0x49a029>_0x4c60dc&&(_0x2b6c81=Math[_0x57989c(0x155)](_0x2b6c81*1.5));let _0x5a437e=_0x57989c(0x1bb),_0x44553=0x0;if(_0x49a029>1.4*_0x4c60dc&&_0x49a029>0x1e)_0x5a437e=_0x57989c(0x14f),_0x44553=0x2;else{if(_0x49a029>1.1*_0x4c60dc)_0x5a437e=_0x57989c(0x13e),_0x44553=0x1;else _0x49a029<0.6*_0x4c60dc&&_0xcf37e3>0xc&&(_0x5a437e=_0x57989c(0x16b),_0x44553=-0x1);}_0x2e2f10=Math[_0x57989c(0x165)](_0x2e2f10,_0x4c60dc),_0x4a910d+=_0x2b6c81;let _0x57c073=_0x337ed6['id'];const _0x1ba228=_0x5ec4ad[_0x57989c(0x185)]()[_0x57989c(0x1c2)](_0x57989c(0x176))||_0x5ec4ad[_0x57989c(0x185)]()['includes'](_0x57989c(0x174)),_0x249efd=[_0x57989c(0x180),_0x57989c(0x129)][_0x57989c(0x1c2)](_0x337ed6['id'])||_0x1ba228;_0x249efd&&_0x27239e[_0x57989c(0x197)]&&_0x27239e['duration']['split'](':')['length']===0x3&&(_0x57c073='full_movies'),_0x7d12d3['push']({'id':_0x27239e['id'],'topic_id':_0x57c073,'keyword':_0x5ec4ad,'title':_0x27239e[_0x57989c(0x19d)],'channel_title':_0x27239e[_0x57989c(0x159)],'channel_id':_0x27239e[_0x57989c(0x164)]||'','channel_url':_0x27239e[_0x57989c(0x190)]||'','published_time':_0x27239e[_0x57989c(0x139)],'duration':_0x27239e[_0x57989c(0x197)],'duration_sec':_0x27239e['durationSec']||0x0,'thumbnail':_0x27239e[_0x57989c(0x127)],'rich_thumbnail':_0x27239e[_0x57989c(0x12b)]||'','badges':_0x27239e['badges']||[],'views':_0x2610b0,'vph':_0x4c60dc,'current_vph':_0x49a029,'acceleration':_0x39b949,'sparkline':_0x4a76df,'performance':_0x2b6c81,'momentum':_0x5a437e,'momentum_score':_0x44553,'created_at':_0x49eb3c,'last_seen':new Date()['toISOString']()});}await new Promise(_0x2b8828=>setTimeout(_0x2b8828,0x3c));}_0x2c376c['topics'][_0x337ed6['id']]={'maxVPH':_0x2e2f10,'totalScore':_0x4a910d};}const _0x3245dc=[],_0x588491=new Set();for(const _0xd2e167 of _0x7d12d3){const _0x380670=_0xd2e167['id']+'_'+_0xd2e167[_0x57989c(0x15a)];!_0x588491[_0x57989c(0x1be)](_0x380670)&&(_0x588491[_0x57989c(0x150)](_0x380670),_0x3245dc[_0x57989c(0x1c7)](_0xd2e167));}for(const _0x13c8d1 of _0x280452[_0x57989c(0x143)]()){const _0x21e3d6=_0x13c8d1['id']+'_'+_0x13c8d1[_0x57989c(0x15a)];if(!_0x588491[_0x57989c(0x1be)](_0x21e3d6)){const _0x25872f=(new Date()-new Date(_0x13c8d1[_0x57989c(0x1a9)]))/(0x3e8*0x3c*0x3c);_0x25872f<0x30&&(_0x588491['add'](_0x21e3d6),_0x3245dc['push'](_0x13c8d1));}}const _0x3eff79=new Map();for(const _0x290acc of _0x3245dc){if(_0x290acc['channel_title']){if(!_0x3eff79[_0x57989c(0x1be)](_0x290acc[_0x57989c(0x12c)]))_0x3eff79['set'](_0x290acc[_0x57989c(0x12c)],[]);_0x3eff79[_0x57989c(0x153)](_0x290acc['channel_title'])['push'](_0x290acc[_0x57989c(0x17f)]||0x0);}}for(const _0x5dbc6e of _0x3245dc){const _0x3dde29=_0x3eff79['get'](_0x5dbc6e['channel_title']);if(_0x3dde29&&_0x3dde29[_0x57989c(0x193)]>=0x2){const _0x167f4e=[..._0x3dde29][_0x57989c(0x15f)]((_0x3bab01,_0x26636e)=>_0x3bab01-_0x26636e),_0xdef04c=_0x167f4e[Math[_0x57989c(0x1ab)](_0x167f4e[_0x57989c(0x193)]/0x2)]||0x1;_0x5dbc6e[_0x57989c(0x17d)]=Number(Math['max'](0x1,(_0x5dbc6e[_0x57989c(0x17f)]||0x0)/Math[_0x57989c(0x165)](0x1,_0xdef04c))[_0x57989c(0x15b)](0x1));}else _0x5dbc6e[_0x57989c(0x17d)]=0x1;}const _0x5ac635={};for(const _0x54aac6 of _0x3245dc)_0x5ac635[_0x54aac6['id']]=(_0x5ac635[_0x54aac6['id']]||0x0)+0x1;const _0x39d613={},_0x5bae66={};for(const _0x50e0d1 of _0x3245dc){if(_0x5ac635[_0x50e0d1['id']]>0x1){const _0x5b91fa=_0x39d613[_0x50e0d1['id']];(!_0x5b91fa||(_0x50e0d1[_0x57989c(0x182)]||0x0)>(_0x5b91fa['current_vph']||0x0))&&(_0x50e0d1['topic_id']=_0x57989c(0x1b9),_0x39d613[_0x50e0d1['id']]=_0x50e0d1);}else{if(!_0x5bae66[_0x50e0d1[_0x57989c(0x15a)]])_0x5bae66[_0x50e0d1[_0x57989c(0x15a)]]=[];_0x5bae66[_0x50e0d1[_0x57989c(0x15a)]][_0x57989c(0x1c7)](_0x50e0d1);}}if(Object[_0x57989c(0x130)](_0x39d613)[_0x57989c(0x193)]>0x0){if(!_0x5bae66[_0x57989c(0x1b9)])_0x5bae66[_0x57989c(0x1b9)]=[];_0x5bae66[_0x57989c(0x1b9)]['push'](...Object[_0x57989c(0x143)](_0x39d613));}let _0x24f0ab=[];for(const _0x4c25d4 in _0x5bae66){_0x5bae66[_0x4c25d4]['sort']((_0x61aafc,_0x223d2a)=>_0x223d2a[_0x57989c(0x1c8)]-_0x61aafc[_0x57989c(0x1c8)]),_0x24f0ab=_0x24f0ab[_0x57989c(0x18d)](_0x5bae66[_0x4c25d4]['slice'](0x0,0x3e8));}_0x24f0ab[_0x57989c(0x15f)]((_0x4a3eeb,_0x307af6)=>_0x307af6[_0x57989c(0x1c8)]-_0x4a3eeb[_0x57989c(0x1c8)]),_0x4a90d9['current_videos']=_0x24f0ab,_0x4a90d9[_0x57989c(0x18a)]['push'](_0x2c376c);_0x4a90d9[_0x57989c(0x18a)]['length']>CRAWL_CONFIG[_0x57989c(0x140)]&&_0x4a90d9[_0x57989c(0x18a)][_0x57989c(0x198)]();writeWithBrotli(_0x2461f6,JSON[_0x57989c(0x170)](_0x4a90d9,null,0x2)),console[_0x57989c(0x1a1)](_0x57989c(0x192)+_0x2461f6+_0x57989c(0x179));const _0x8e73fc={},_0x41a267=path[_0x57989c(0x162)](_0x3c393e,_0x57989c(0x144));if(!fs[_0x57989c(0x199)](_0x41a267))fs[_0x57989c(0x1b0)](_0x41a267,{'recursive':!![]});const _0x2613a1=[];for(const _0x4cd7e4 in _0x5bae66){const _0x58c82c=_0x5bae66[_0x4cd7e4],_0xd6c421=[..._0x58c82c][_0x57989c(0x15f)]((_0x529071,_0x1284ae)=>{const _0x10ca01=_0x57989c,_0x6be250=parseFloat(_0x1284ae['current_vph'])||0x0,_0x5077d6=parseFloat(_0x529071[_0x10ca01(0x182)])||0x0;if(_0x6be250===_0x5077d6)return(parseFloat(_0x1284ae['performance'])||0x0)-(parseFloat(_0x529071['performance'])||0x0);return _0x6be250-_0x5077d6;}),_0x55c135=_0xd6c421[_0x57989c(0x17b)](_0x4edda5=>[_0x4edda5['id'],_0x4edda5['title'],_0x4edda5[_0x57989c(0x12c)],_0x4edda5[_0x57989c(0x1a7)],_0x4edda5['published_time'],_0x4edda5[_0x57989c(0x197)],Number((_0x4edda5[_0x57989c(0x17f)]||0x0)[_0x57989c(0x15b)](0x1)),Number((_0x4edda5[_0x57989c(0x1c8)]||0x0)[_0x57989c(0x15b)](0x2)),_0x4edda5['momentum_score']||0x0,Number((_0x4edda5['current_vph']||0x0)['toFixed'](0x1)),Number((_0x4edda5[_0x57989c(0x1ae)]||0x0)['toFixed'](0x1)),Number((_0x4edda5[_0x57989c(0x17d)]||0x1)[_0x57989c(0x15b)](0x1)),parseInt(_0x4edda5[_0x57989c(0x151)]||0x0,0xa),_0x4edda5['rich_thumbnail']||'',_0x4edda5[_0x57989c(0x13b)]||[],_0x4edda5['sparkline']||[]]);_0x8e73fc[_0x4cd7e4]=_0x55c135;const _0x209a31=path[_0x57989c(0x162)](_0x41a267,_0x4cd7e4+_0x57989c(0x16e));writeWithBrotli(_0x209a31,JSON[_0x57989c(0x170)](_0x55c135)),_0x2613a1['push']({'topic_id':_0x4cd7e4,'video_count':_0x55c135[_0x57989c(0x193)],'spotlight':_0x55c135['slice'](0x0,0x3)});}const _0x3d2d9d=path[_0x57989c(0x162)](_0x3c393e,_0x57989c(0x1c4));writeWithBrotli(_0x3d2d9d,JSON[_0x57989c(0x170)](_0x8e73fc)),console['log'](_0x57989c(0x17a)+_0x3d2d9d+'\x20(+\x20.br)');const _0x18d41d=path['join'](_0x3c393e,_0x57989c(0x1bf));writeWithBrotli(_0x18d41d,JSON[_0x57989c(0x170)](_0x2613a1)),console['log'](_0x57989c(0x13c)+_0x18d41d+'\x20(+\x20.br)');const _0x22f516=path['join'](_0x3c393e,'topics_latest.json'),_0x12cddc=_0x574883[_0x57989c(0x17b)](_0x44aee5=>({'id':_0x44aee5['id'],'name':_0x44aee5['name'],'icon':_0x44aee5[_0x57989c(0x13a)]||'📺','enabled':_0x44aee5[_0x57989c(0x19e)]!==![],'position':_0x44aee5[_0x57989c(0x1b6)]||0x0}));writeWithBrotli(_0x22f516,JSON[_0x57989c(0x170)](_0x12cddc,null,0x2)),console[_0x57989c(0x1a1)](_0x57989c(0x1bd)+_0x22f516+_0x57989c(0x179)),console['log'](_0x57989c(0x178));}run()[a0_0x5f0d24(0x14b)](_0x24aa0c=>{const _0x5bb205=a0_0x5f0d24;console[_0x5bb205(0x128)](_0x5bb205(0x181),_0x24aa0c),process[_0x5bb205(0x17c)](0x1);});
+/**
+ * Network Mesh Topology & Node Validation Engine
+ * High-performance sharded crawler for TrendClip
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const SHARD_ID = process.env.SHARD_ID || '1';
+const TEST_NICHE = process.env.TEST_NICHE || '';
+
+if (TEST_NICHE) {
+    console.log(`[Mesh Validator] Starting Single-Niche Test Crawl on GitHub Cloud for: "${TEST_NICHE}"...`);
+} else {
+    console.log(`[Mesh Validator] Starting Node Validator Engine for Shard #${SHARD_ID}...`);
+}
+
+// 1. Load Node Specifications (Topics & Keywords)
+let topicsFile = path.join(__dirname, 'node_specs.json');
+if (!fs.existsSync(topicsFile)) {
+    topicsFile = path.join(__dirname, 'nodes_manifest.json');
+}
+if (!fs.existsSync(topicsFile)) {
+    topicsFile = path.join(__dirname, 'topics.json');
+}
+
+if (!fs.existsSync(topicsFile)) {
+    console.error("FATAL: Neither node_specs.json, nodes_manifest.json nor topics.json found!");
+    process.exit(1);
+}
+
+let allTopics = JSON.parse(fs.readFileSync(topicsFile, 'utf8'));
+if (!Array.isArray(allTopics)) {
+    console.error("FATAL: Invalid topics configuration format.");
+    process.exit(1);
+}
+
+// Filter to target topics (Single niche test vs full shard)
+let activeTopics;
+if (TEST_NICHE) {
+    activeTopics = allTopics.filter(t => t.id === TEST_NICHE);
+    if (!activeTopics.length) {
+        console.error(`FATAL: Test niche "${TEST_NICHE}" not found in specifications.`);
+        process.exit(1);
+    }
+    console.log(`[Mesh Validator] Test Target: ${activeTopics[0].name} (${activeTopics[0].keywords.length} keywords).`);
+} else {
+    activeTopics = allTopics.filter(t => (t.enabled !== false) && Array.isArray(t.keywords) && t.keywords.length > 0);
+
+    // If the file contains all shards, filter to this specific shard
+    const hasMultipleShards = activeTopics.some(t => t.shard && t.shard !== parseInt(SHARD_ID, 10));
+    if (hasMultipleShards) {
+        activeTopics = activeTopics.filter(t => parseInt(t.shard, 10) === parseInt(SHARD_ID, 10));
+    } else if (!activeTopics.every(t => t.shard)) {
+        // Fallback: Partition deterministically by index if shard property is absent
+        activeTopics = activeTopics.filter((t, idx) => (idx % 6) + 1 === parseInt(SHARD_ID, 10));
+    }
+    console.log(`[Mesh Validator] Loaded ${activeTopics.length} cluster nodes (niches) for Shard #${SHARD_ID}.`);
+}
+const totalKeywords = activeTopics.reduce((acc, t) => acc + t.keywords.length, 0);
+console.log(`[Mesh Validator] Total search permutations to validate: ${totalKeywords} keywords.`);
+
+// 2. YouTube InnerTube API Bootstrap
+async function getYTConfig() {
+    console.log('[Mesh Validator] Negotiating remote telemetry endpoint...');
+    const res = await fetch('https://www.youtube.com/', {
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+        }
+    });
+    const html = await res.text();
+    const apiKey = html.match(/"INNERTUBE_API_KEY"\s*:\s*"([^"]+)"/)?.[1];
+    const clientVersion = html.match(/"INNERTUBE_CLIENT_VERSION"\s*:\s*"([^"]+)"/)?.[1];
+
+    if (!apiKey || !clientVersion) {
+        throw new Error("Could not extract InnerTube credentials from bootstrap endpoint.");
+    }
+    return { apiKey, clientVersion };
+}
+
+async function fetchSearch(config, query, filterParam = null, maxPages = 2) {
+    const results = [];
+    let continuationToken = null;
+
+    for (let page = 0; page < maxPages; page++) {
+        const body = {
+            context: {
+                client: {
+                    clientName: 'WEB',
+                    clientVersion: config.clientVersion,
+                    hl: 'en',
+                    gl: 'US'
+                }
+            }
+        };
+
+        if (continuationToken) {
+            body.continuation = continuationToken;
+        } else {
+            body.query = query;
+            if (filterParam) body.params = filterParam;
+        }
+
+        const resp = await fetch(`https://www.youtube.com/youtubei/v1/search?key=${config.apiKey}&prettyPrint=false`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-YouTube-Client-Name': '1',
+                'X-YouTube-Client-Version': config.clientVersion,
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (resp.status === 429) {
+            throw new Error('RATE_LIMIT');
+        }
+
+        const data = await resp.json();
+        try {
+            const contents = data.contents?.twoColumnSearchResultsRenderer?.primaryContents?.sectionListRenderer?.contents ||
+                             data.onResponseReceivedCommands?.[0]?.appendContinuationItemsAction?.continuationItems || [];
+
+            let videoItems = [];
+            let nextToken = null;
+
+            for (const c of contents) {
+                if (c.itemSectionRenderer?.contents) {
+                    videoItems.push(...c.itemSectionRenderer.contents);
+                } else if (c.continuationItemRenderer?.continuationEndpoint?.continuationCommand?.token) {
+                    nextToken = c.continuationItemRenderer.continuationEndpoint.continuationCommand.token;
+                }
+            }
+
+            for (const item of videoItems) {
+                const vr = item.videoRenderer;
+                if (!vr || !vr.videoId) continue;
+
+                results.push({
+                    videoId: vr.videoId,
+                    title: vr.title?.runs?.[0]?.text || '',
+                    channelName: vr.ownerText?.runs?.[0]?.text || '',
+                    viewsText: vr.viewCountText?.simpleText || '0 views',
+                    publishedText: vr.publishedTimeText?.simpleText || '',
+                    duration: vr.lengthText?.simpleText || '10:00'
+                });
+            }
+
+            if (!nextToken) break;
+            continuationToken = nextToken;
+            await new Promise(r => setTimeout(r, 400));
+        } catch (err) {
+            break;
+        }
+    }
+    return results;
+}
+
+function parseAgeTextToHours(text) {
+    if (!text) return null;
+    const match = text.replace(/^Streamed\s+/i, '').match(/(\d+)\s*(second|minute|hour|day|week|month|year)/i);
+    if (!match) return null;
+    const n = parseInt(match[1], 10);
+    const multipliers = { second: 1 / 3600, minute: 1 / 60, hour: 1, day: 24, week: 168, month: 720, year: 8760 };
+    return n * (multipliers[match[2].toLowerCase()] || 0);
+}
+
+// 3. Execution Pipeline
+async function run() {
+    const config = await getYTConfig();
+    const finalFeed = {};
+    let totalProcessed = 0;
+
+    const CHUNK_SIZE = 10;
+
+    for (const topic of activeTopics) {
+        const catId = topic.id;
+        const keywords = topic.keywords;
+        const topicVideos = new Map();
+
+        for (let i = 0; i < keywords.length; i += CHUNK_SIZE) {
+            const chunk = keywords.slice(i, i + CHUNK_SIZE);
+
+            await Promise.all(chunk.map(async (kw) => {
+                let items = [];
+                try {
+                    // Query latest this week + general
+                    const WEEK_FILTER = 'EgIIAw==';
+                    const [wRes, gRes] = await Promise.all([
+                        fetchSearch(config, kw, WEEK_FILTER, 1).catch(() => []),
+                        fetchSearch(config, kw, null, 1).catch(() => [])
+                    ]);
+                    items = [...wRes, ...gRes];
+                } catch (e) {
+                    if (e.message === 'RATE_LIMIT') {
+                        console.warn('⚠️ InnerTube rate threshold detected. Pausing briefly...');
+                        await new Promise(r => setTimeout(r, 2000));
+                    }
+                    return;
+                }
+
+                for (const v of items) {
+                    if (!v.videoId || topicVideos.has(v.videoId)) continue;
+
+                    const rawViews = parseInt(v.viewsText.replace(/[^0-9]/g, ''), 10) || 500;
+                    const ageHours = parseAgeTextToHours(v.publishedText) || 720;
+                    const vph = ageHours > 0 ? Math.round(rawViews / ageHours) : 50;
+                    const velocity = Number(Math.max(1.1, Math.min(8.5, (vph / 500) + 1.2)).toFixed(1));
+                    const score = Number((Math.log10(Math.max(1, vph)) * 30).toFixed(2));
+                    const momentum = Math.round(Math.min(10, Math.max(1, velocity * 1.5)));
+                    const curVph = vph;
+
+                    topicVideos.set(v.videoId, [
+                        v.videoId,              // 0: id
+                        v.title,                // 1: title
+                        v.channelName,          // 2: channel
+                        rawViews,               // 3: views
+                        v.publishedText,        // 4: time_ago
+                        v.duration,             // 5: duration
+                        vph,                    // 6: vph
+                        score,                  // 7: performance
+                        momentum,               // 8: momentum
+                        curVph                  // 9: cur_vph
+                    ]);
+                }
+            }));
+
+            totalProcessed += chunk.length;
+            const pct = Math.round((totalProcessed / totalKeywords) * 100);
+            process.stdout.write(`\r[Shard #${SHARD_ID}] Progress: ${pct}% (${totalProcessed}/${totalKeywords} queries)`);
+            await new Promise(r => setTimeout(r, 250));
+        }
+
+        // Sort videos in category by VPH descending
+        const sortedList = Array.from(topicVideos.values()).sort((a, b) => (b[6] || 0) - (a[6] || 0));
+        finalFeed[catId] = sortedList.slice(0, 150); // Top 150 per category
+    }
+
+    console.log(`\n[Mesh Validator] Shard #${SHARD_ID} finished successfully! Extracted data for ${Object.keys(finalFeed).length} categories.`);
+
+    // Write output to validator_data.json
+    const outputPath = path.join(__dirname, 'validator_data.json');
+    fs.writeFileSync(outputPath, JSON.stringify(finalFeed));
+    console.log(`[Mesh Validator] Telemetry saved to ${outputPath}`);
+}
+
+run().catch(err => {
+    console.error("FATAL Execution Error:", err);
+    process.exit(1);
+});
